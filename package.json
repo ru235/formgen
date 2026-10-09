@@ -1,0 +1,10 @@
+{
+  "name": "formgen-engine",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Генератор точных чертежей коробок (dieline) по FEFCO — formgen.ru",
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
+  }
+}
