@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Штанцформа: точный чертёж коробки и расчёт | formgen.ru</title>
+<meta name="description" content="Конструктор вырубного чертежа коробки FEFCO 0427 и 0215: разворот 1:1, слои реза и биговки, расчёт штанцформы в рублях, DXF и PDF.">
+<link rel="canonical" href="https://formgen.ru/shtancformy/">
+<style>
+:root{
+  --bg:#f7f8fa; --card:#fff; --fg:#0f172a; --muted:#64748b; --line:#e2e8f0;
+  --accent:#2563eb; --accent-fg:#fff; --ok:#059669; --warn:#d97706; --cut:#e11d48;
+  --radius:14px; --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0b1120;--card:#111827;--fg:#e5e7eb;--muted:#94a3b8;--line:#1f2937;
+    --accent:#3b82f6;--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;text-decoration:none;color:var(--fg)}
+.brand small{color:var(--muted);font-weight:600}
+.nav-links{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--accent)}
+main{padding:28px 0 60px}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--muted)}
+h1{font-size:clamp(24px,3.4vw,34px);line-height:1.15;margin:0 0 10px}
+.lede{color:var(--muted);max-width:70ch;margin:0 0 22px}
+.layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px}
+.card h2{font-size:15px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin:0 0 4px}
+.field{margin-bottom:12px}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+  background:var(--bg);color:var(--fg);font:inherit}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);
+  background:var(--card);color:var(--fg);padding:10px 14px;font-weight:600}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;width:100%}
+button:hover{border-color:var(--accent)}
+.toggles{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tg{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;
+  border:1px solid var(--line);border-radius:20px;padding:6px 11px;cursor:pointer;color:var(--muted)}
+.tg input{width:auto;margin:0}
+.tg .sw{width:16px;height:3px;border-radius:2px}
+.tg .n{color:var(--muted);font-weight:700;font-size:11px}
+#preview{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:10px;overflow:auto}
+#preview svg{width:100%;height:auto;display:block}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.metric b{display:block;font-size:20px;line-height:1.2}
+.metric span{font-size:12px;color:var(--muted);font-weight:600}
+.price{grid-column:span 2;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 12%,var(--card)),var(--card))}
+.price b{font-size:28px;color:var(--accent)}
+.dl{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;
+  border:1px solid var(--line)}
+.badge.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
+.badge.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
+.warnlist{margin:12px 0 0;padding-left:18px;color:var(--warn);font-size:13px}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+.hint{font-size:12px;color:var(--muted);margin:2px 0 0}
+.lead{margin-top:22px}
+.lead .row2{gap:12px}
+summary{cursor:pointer;font-weight:700;padding:10px 0}
+footer.site{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.fgrid h3{font-size:14px;margin:0 0 8px;color:var(--fg)}
+.fgrid ul{margin:0;padding-left:18px}
+#leadOut{margin-top:10px;font-size:14px;color:var(--ok);font-weight:600}
+#reqSummary{font-weight:600}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <nav>
+    <a class="brand" href="../" aria-label="formgen — на главную">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6 11 L16 6 L26 11 L26 23 L16 28 L6 23 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></path>
+        <path d="M6 11 L16 16 L26 11 M16 16 L16 28" stroke="#2563eb" stroke-width="2"></path>
+      </svg>
+      <span>formgen<small>.ru</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="../">Калькулятор</a>
+      <a href="../fefco/">Коробки FEFCO</a>
+      <a href="./" aria-current="page">Штанцформа</a>
+      <a href="../prochnost/">Прочность</a>
+      <a href="../gofro/">Гофрокартон</a>
+    </div>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Хлебные крошки">
+    <a href="../">Главная</a> / <span>Штанцформа: чертёж и расчёт</span>
+  </nav>
+
+  <h1>Штанцформа: точный чертёж коробки и расчёт</h1>
+  <p class="lede">Введите внутренние размеры коробки — получите вырубной чертёж 1:1 с раздельными
+  слоями реза, биговки, перфорации и клея, расчёт штанцформы в рублях и файлы DXF/PDF для
+  штанцбюро. Чертёж и расчёт считаются из одной модели — цифры совпадают по определению.</p>
+
+  <div class="layout">
+    <aside>
+      <div class="card">
+        <h2>Параметры</h2>
+        <div class="field">
+          <label for="style">Конструкция</label>
+          <select id="style"></select>
+        </div>
+        <div class="grid3">
+          <div class="field"><label for="l">Длина, мм</label><input id="l" type="number" step="1" min="10" value="300"></div>
+          <div class="field"><label for="w">Ширина, мм</label><input id="w" type="number" step="1" min="10" value="200"></div>
+          <div class="field"><label for="h">Высота, мм</label><input id="h" type="number" step="1" min="5" value="150"></div>
+        </div>
+        <p class="hint">Внутренние размеры готовой коробки.</p>
+        <div class="row2">
+          <div class="field">
+            <label for="sizeMode">Размеры заданы по</label>
+            <select id="sizeMode">
+              <option value="inner">внутренние</option>
+              <option value="manufacture">линиям сгиба</option>
+              <option value="outer">наружные</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="material">Материал</label>
+            <select id="material"></select>
+          </div>
+        </div>
+        <div class="field" id="thicknessField" hidden>
+          <label for="thickness">Толщина, мм</label>
+          <input id="thickness" type="number" step="0.05" min="0.1" value="1.5">
+        </div>
+        <div class="dl">
+          <button id="dlSvg" type="button">Скачать SVG</button>
+          <button id="dlDxf" type="button">Скачать DXF</button>
+          <button id="dlPdf" type="button">Скачать PDF 1:1</button>
+          <button id="copyLink" type="button">Скопировать ссылку</button>
+        </div>
+        <p class="note">DXF R12, слои <code>CUT / CREASE / PERF / GLUE</code>, чистая геометрия
+        без керфа — импортируется в CAM штанцбюро. PDF — масштаб 1:1 для плоттера.</p>
+      </div>
+
+      <div class="card lead">
+        <h2>Заявка в штанцбюро</h2>
+        <form id="lead">
+          <div class="row2">
+            <div class="field"><label for="fName">Имя</label><input id="fName" name="name" required></div>
+            <div class="field"><label for="fCompany">Типография</label><input id="fCompany" name="company"></div>
+          </div>
+          <div class="field"><label for="fContact">Телефон или почта</label><input id="fContact" name="contact" required></div>
+          <div class="field"><label for="fComment">Комментарий</label><input id="fComment" name="comment" placeholder="тираж, срок, бумага"></div>
+          <p class="hint" id="reqSummary"></p>
+          <label class="tg" style="margin-bottom:12px"><input type="checkbox" name="consent" value="1" required>
+            Согласен на обработку персональных данных</label>
+          <button class="primary" type="submit">Собрать письмо</button>
+          <p class="note">Откроется почта с готовым текстом заявки. Чертёж приложите файлом —
+          DXF для штанцбюро или PDF 1:1 (кнопки выше).</p>
+        </form>
+        <p id="leadOut" hidden></p>
+      </div>
+    </aside>
+
+    <section>
+      <div id="preview" aria-label="Чертёж разворота"></div>
+      <div class="toggles">
+        <label class="tg"><input type="checkbox" data-layer-toggle="cut" checked>
+          <span class="sw" style="background:#e11d48"></span>Рез
+          <span class="n" data-count="cut">0</span></label>
+        <label class="tg"><input type="checkbox" data-layer-toggle="crease" checked>
+          <span class="sw" style="background:#2563eb"></span>Биговка
+          <span class="n" data-count="crease">0</span></label>
+        <label class="tg"><input type="checkbox" data-layer-toggle="perf" checked>
+          <span class="sw" style="background:#059669"></span>Перфорация
+          <span class="n" data-count="perf">0</span></label>
+        <label class="tg"><input type="checkbox" data-layer-toggle="glue" checked>
+          <span class="sw" style="background:#d97706"></span>Клей
+          <span class="n" data-count="glue">0</span></label>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><b id="blank">—</b><span>Разворот</span></div>
+        <div class="metric"><b id="panels">—</b><span>Панелей</span></div>
+        <div class="metric"><b id="mCut">—</b><span>Длина реза</span></div>
+        <div class="metric"><b id="mCrease">—</b><span>Длина биговки</span></div>
+        <div class="metric"><b id="mPerf">—</b><span>Перфорация</span></div>
+        <div class="metric"><b id="mGlue">—</b><span>Клеевой нож</span></div>
+        <div class="metric price"><b id="price">—</b><span>Штанцформа ≈ <span id="tariff"></span></span></div>
+      </div>
+
+      <ul class="warnlist" id="warnings" hidden></ul>
+
+      <details class="card" style="margin-top:16px">
+        <summary>Как читать чертёж и что дальше</summary>
+        <p>Красным — режущий контур, синим пунктиром — биговка, зелёным — перфорация,
+        оранжевым — клеевой нож. Размеры пересчитываются через толщину материала:
+        биговка идёт по линиям сгиба, а не «в размер отреза».</p>
+        <p id="fefcoRef" class="note"></p>
+        <p><span id="badge" class="badge warn">не сверено</span></p>
+        <p class="note">Файл — основа для разговора с технологом. Раскладку под ваше
+        оборудование и параметры замков всегда согласуйте на штанцбюро.</p>
+      </details>
+    </section>
+  </div>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="fgrid">
+    <div><h3>formgen.ru</h3><p>Калькулятор гофротары FEFCO и генератор вырубных чертежей. Перед тиражом проверьте чертёж на плоттере.</p></div>
+    <div><h3>Расчёты</h3><ul>
+      <li><a href="../">Калькулятор 0201</a></li>
+      <li><a href="../prochnost/">Прочность BCT</a></li>
+      <li><a href="./">Штанцформа и чертёж</a></li></ul></div>
+    <div><h3>Справочник</h3><ul>
+      <li><a href="../fefco/">Типы FEFCO</a></li>
+      <li><a href="../gofro/">Гофрокартон</a></li>
+      <li><a href="../primery/">Примеры</a></li></ul></div>
+  </div>
+</div></footer>
+
+<script src="./app.js"></script>
+</body>
+</html>
